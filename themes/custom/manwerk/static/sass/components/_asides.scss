@@ -1,0 +1,62 @@
+.page-wrapper > aside {
+    background-color: transparent;
+    height: $aside;
+
+    @include screen-min($tablet){
+        // height: var(--aside);
+        // max-height: 144px;
+        width: var(--screen-height);
+        position: fixed;
+    }
+
+    &.logo {
+        @include flexit(flex-end, center);
+        padding-right: 1.25rem;
+        align-self: flex-start;
+        position: absolute;
+        margin-left: $aside;
+        
+        @include screen-min($tablet){
+            transform: rotate(-90deg) translateX(-100vh);
+            transform-origin: top left;
+            top: 0;
+            left: 0;
+            z-index: 3;
+            padding-right: 3rem;
+            margin-left: 0;
+            align-self: initial;
+            position: fixed;
+        }
+
+        & a {
+            display: flex;
+
+            & img {
+                max-height: 1.25rem;
+    
+                @include screen-min($tablet){
+                    max-height: 2rem;
+                }
+            }
+        } 
+
+    }
+    &.navbar {
+        @include flexit(flex-start, center);
+        padding-left: 1.25rem;
+        align-self: flex-end;
+        position: fixed;
+        z-index: 9;
+
+        @include screen-min($tablet){
+            transform: rotate(90deg);
+            transform-origin: top left;
+            top: 0;
+            right: calc( 0px - var(--screen-height) );
+            z-index: 2;
+            padding-left: 3rem;
+            align-self: initial;
+        }
+
+    }
+}

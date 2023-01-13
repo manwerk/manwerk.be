@@ -1,0 +1,45 @@
+<footer class="footer">
+  {% if page.footer %}
+  <section class="footer__inject">
+		{{ page.footer }}
+  </section>
+	{% endif %}
+  <section class="footer__info">
+    <div class="info__contact">
+      <h4 class="footer__title">Contact</h4>
+      <div class="menu__list">
+        <span class="list-item">{{ site_settings.contact.contact.field_contact_address }} {{ site_settings.contact.contact.field_contact_housenumber }}, {{ site_settings.contact.contact.field_contact_postal }} {{ site_settings.contact.contact.field_contact_city }}</span>
+        <span class="list-item">{{ site_settings.contact.contact.field_contact_email }}</span>
+        <span class="list-item">{{ site_settings.contact.contact.field_contact_vat }}</span>
+      </div>
+    </div>
+    <div class="info__menu-1">
+      {% if page.footer_1 %}
+        {{ page.footer_1 }}
+      {% endif %}
+    </div>
+    <div class="info__menu-2">
+      {% if page.footer_2 %}
+        {{ page.footer_2 }}
+      {% endif %}
+    </div>
+    <div class="info__menu-3">
+      {% if page.footer_3 %}
+        {{ page.footer_3 }}
+      {% endif %}
+    </div>
+    <div class="info__menu-4">
+      <h4 class="footer__title">Socials</h4>
+      <nav class="menu__list">
+      {% for site_setting in site_settings.socials.socials %}
+        <a href={{ site_setting.field_social_link.uri }} target="_blank" rel="noopener noreferrer" class="list-item icon">
+          {{ site_setting.field_social_icon.value | raw }}
+         </a>
+      {% endfor %}
+      </nav>
+    </div>
+  </section>
+  
+  {{ page.subfooter }}
+ 
+</footer>

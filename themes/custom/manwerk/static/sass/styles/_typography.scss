@@ -1,0 +1,51 @@
+body {
+  line-height: $line-height;
+}
+
+h1, h2, h3, h4 {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: $font-bold;
+  padding-bottom: 1em;
+}
+
+h1 {
+  font-size: $fontscale-3;
+}
+h2 {
+  font-size: $fontscale-2;
+}
+h3 {
+  font-size: $fontscale-1;
+}
+h4 {
+  font-size: $fontscale;
+}
+h5 {
+  font-size: $fontscale--1;
+}
+h6 {
+  font-size: $fontscale--2;
+}
+
+strong {
+    font-weight: $font-bold;
+}
+
+em {
+    font-style: italic;
+}
+
+.small{
+    font-size: $fontscale--1;
+}
+
+p + h3,
+ol + h3,
+ul + h3 {
+  margin-top: calc($gutter * 6);
+}
+p + h4,
+ol + h4,
+ul + h4 {
+  margin-top: calc($gutter * 3);
+}

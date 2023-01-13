@@ -1,0 +1,130 @@
+section {
+    &.page__section {
+        position: relative;
+        z-index: 0;
+
+        & + & {
+            margin-top: 5rem;
+            margin-bottom: 0;
+
+            @include screen-min($tablet){
+                margin-top: 16rem;
+                margin-bottom: 8rem;
+            }
+        }
+
+        & .section__title {
+            font-size: clamp(4rem, 10vw, 12.5rem);
+            -webkit-text-stroke: 1px $grey;
+            -webkit-text-fill-color: transparent;
+            position: absolute;
+            padding-bottom: 0;
+            line-height: 1.15;
+            left: 0;
+            right: 0;
+            text-align: center;
+            top: -.05rem;
+
+            @include screen-min($tablet){
+                top: -1.5rem;
+            }
+        }
+
+        &.section__alt {
+
+            .section__title {
+                // width: auto;
+                left: unset;
+                right: unset;
+                mix-blend-mode: overlay;
+            }
+            
+            &:nth-child(odd){
+                .section__title {
+                    left: 0;
+                    line-height: 1.35;
+
+                    @include screen-min($desktop){
+                        transform: translateX(calc(5 * var(--column)));
+                        top: -7rem;
+                    }
+                }
+            }
+        
+            &:nth-child(even){
+                .section__title {
+                    right: 0;
+                    line-height: 1.35;
+                    
+                    @include screen-min($desktop){
+                        transform: translateX(calc(0px - (5 * var(--column))));
+                        top: -7rem;
+                    }
+                }
+            }
+        }
+    }
+
+    .path-frontpage &.section__content {
+        margin-left: calc( 0px - $aside );
+        margin-right: calc( 0px - $aside );
+
+        @include screen-min($tablet){
+            margin-left: 0;
+            margin-right: 0;
+        }
+
+        .section__title {
+            top: -.5em;
+        }
+    }
+
+    &.page__footer {
+        @include flexit(center, center, column);
+        gap: calc(2 * $gutter);
+        background-image: url('./../../../assets/manwerk-background.jpg');
+        background-position: center center;
+        background-size: cover;
+        // margin-top: calc( 0px - (2 * $mobile-small-radius) );
+        // padding-top: calc( 2 * $mobile-small-radius + 6rem );
+        padding-top: 6rem;
+        padding-bottom: 6rem;
+        margin-left: calc( 0px - var(--aside) );
+        margin-right: calc( 0px - var(--aside) );
+        width: calc( 100% + (2 * var(--aside)) );
+        z-index: -1;
+
+        @include screen-min($tablet) {
+            margin-left: 0;
+            margin-right: 0;
+            width: 100%;
+        }
+
+        @include screen-min($widescreen){
+            @supports( background-attachment: fixed){
+                background-attachment: fixed;
+            }
+        }
+
+        &-alt {
+            padding-top: 6rem;
+            margin-top: 6rem;
+            margin-left: 0;
+            margin-right: 0;
+            width: 100%;
+        }
+
+        & .page__footer-title {
+            color: $white;
+            font-weight: $font-bold;
+            font-size: $fontscale-2;
+            text-transform: lowercase;
+            text-align: center;
+            line-height: 1.3;
+
+            @include screen-min($tablet) {
+                font-size: $fontscale-3;
+            }
+        }
+    }
+}

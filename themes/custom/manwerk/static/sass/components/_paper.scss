@@ -1,0 +1,16 @@
+.paper {
+  @include container;
+  position: absolute;
+  z-index: -1;
+
+  &__grid {
+    background-size: calc(2 * (100% / ( $grid / 2 )));
+    background-image: linear-gradient(to right, $grey 1px, transparent 1px);
+    border-right: 1px solid $grey;
+    height: 100%;
+
+    @include screen-min( $tablet ) {
+        background-size: calc(2 * (100% / $grid));
+    }
+  }
+}

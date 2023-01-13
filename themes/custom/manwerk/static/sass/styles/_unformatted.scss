@@ -1,0 +1,81 @@
+.content__layout {
+    .layout__container {
+        .article {
+            display: flex;
+            flex-direction: column-reverse;
+            justify-content: space-between;
+            align-items: center;
+
+            & + .article {
+                @include vertical-space(6, 'top');
+
+                @include screen-min($desktop){
+                    @include vertical-space(12, 'top');
+                }
+            }
+
+            .article__content {
+                flex-shrink: 0;
+                width: 100%;
+                margin-top: calc( 2 * $gutter );
+
+                @include screen-min($desktop){
+                    width: calc(4*var(--column));
+                    margin-top: 0;
+                }
+
+                .article__footer {
+                    margin-top: 2rem;
+                }
+            }
+
+            .article__media {
+                display: flex;
+                flex-direction: row;
+                justify-content: center;
+                align-items: center;
+
+                figure {
+                    img {
+                        object-fit: cover;
+                        width: 100%;
+                        height: 100%;
+                    }
+                }
+            }
+
+            &:nth-child(odd) {
+                
+                @include screen-min($desktop){
+                    flex-direction: row-reverse;
+                }
+
+                .article__media {
+                    margin-left: calc(0px - var(--aside));
+                    
+                    @include screen-min($desktop){
+                        padding-right: calc( 2 * var(--column) );
+                    }
+                }
+            }
+
+            &:nth-child(even) {
+
+                @include screen-min($desktop){
+                    flex-direction: row;
+                }
+
+                .article__media {
+                    margin-left: calc(0px - var(--aside));
+
+                    @include screen-min($desktop){
+                        margin-right: calc(0px - var(--aside));
+                        margin-left: 0;
+                        padding-right: 0;
+                        padding-left: calc( 2 * var(--column) );
+                    }
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,39 @@
+.btn {
+    text-decoration: none;
+  
+  & .btn-icon {
+    padding-left: $gutter;
+    transition: all .4s ease-in-out;
+  }
+
+  &.article__btn {
+    background: transparent;
+    color: inherit;
+    font-family: inherit;
+    font-weight: $font-bold;
+    padding: 0;
+    text-decoration: none;
+  }
+
+  &.article__btn-alt {
+    background-color: $white;
+    color: inherit;
+    font-weight: $font-bold;
+    padding: calc(1.875 * $gutter) calc(3 * $gutter) calc(1.875 * $gutter) calc(2.325 * $gutter);
+    text-decoration: none;
+  }
+
+  &.solid__btn {
+    background-color: $white;
+    color: inherit;
+    font-weight: $font-bold;
+    padding: calc(.875 * $gutter) calc(1.875 * $gutter);
+  }
+
+  &:hover {
+    cursor: pointer;
+    .btn-icon {
+      padding-left: calc(1.5 * $gutter);
+    }
+  }
+}

@@ -1,0 +1,120 @@
+.page-wrapper > footer {
+  &.footer {
+    font-size: .875em;
+    
+    & .footer__info {
+        @include flexit(flex-start, flex-start);
+        @include vertical-space(12);
+        flex-wrap: wrap;
+        row-gap: calc( 2 * $gutter );
+
+        & .footer__title {
+            & a {
+                text-decoration: none;
+                color: inherit;
+            }
+        }
+
+        & .info__contact {
+            width: 100%;
+
+            @include screen-min($tablet) {
+                width: calc(4 * var(--column));
+            }
+        }
+        
+        & [class^="info__menu"] {
+            width: 100%;
+
+            @include screen-min($tablet) {
+                width: calc(4 * var(--column));
+            }
+
+
+            @include screen-min($widescreen){
+                width: calc(2 * var(--column));
+            }
+        }
+
+        & .menu__list {
+            @include flexit(flex-start, flex-start, column);
+
+            & .list-item {
+            color: inherit;
+            text-decoration: none;
+            margin-bottom: .375em;
+            }
+            .icon {
+            @include flexit(center, center);
+            border: 1px solid $primary-color;
+            font-size: 1rem;
+            padding: $gutter;
+            height: 3rem;
+            width: 3rem;
+            }
+        }
+
+        & .info__menu-4 {
+            & .menu__list {
+                @include flexit(flex-start, center, row);
+                gap: $gutter;
+            }
+        }
+    }
+
+    & .footer__bottom {
+        @include flexit(center, center, column);
+        @include vertical-space(3.75);
+        background-color: $white;
+        gap: $gutter;
+
+        @include screen-min($tablet) {
+            @include flexit(space-between, center);
+        }
+
+        &-logo {
+            max-height: 24px;
+        }
+        &-policies {
+            @include flexit(flex-end, center);
+
+            .policies__links {
+                @include flexit(center, center);
+                flex-wrap: wrap;
+                color: $black;
+                font-size: .9em;
+                font-weight: $font-weight;
+                column-gap: calc(2 * $gutter);
+                row-gap: $gutter;
+
+                @include screen-min($tablet) {
+                    @include flexit(flex-end, center);
+                }
+
+                & .link {
+                    @include flexit(center, center);
+                    color: $dark-grey;
+                    position: relative;
+
+                    &:not(:last-child)::before {
+                        border-right: 1px solid $grey;
+                        content: '';
+                        height: 30%;
+                        position: absolute;
+                        right: -$gutter;
+                    }
+                    & a {
+                        color: inherit;
+                        font-weight: inherit;
+                        text-decoration: none;
+                    }
+
+                    &.link-alt {
+                        text-decoration: none;
+                    }
+                }
+            }
+        }
+    }
+  }
+}

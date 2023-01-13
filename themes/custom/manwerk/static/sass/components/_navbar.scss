@@ -1,0 +1,281 @@
+.page-wrapper > aside {
+  &.navbar {
+    & .navbar__nav {
+      @include flexit(center, center);
+      width: 3rem;
+      height: 3rem;
+
+      @include screen-min($tablet) {
+          margin-right: calc(2 * $gutter);
+      }
+
+      & .nav__burger {
+        @include flexit(space-between, flex-end, column);
+        height: 100%;
+        width: 100%;
+        padding: .875rem .5rem;
+        z-index: 1;
+
+        @include screen-min($tablet){
+            transform: rotate(-90deg);
+        }
+
+        &-line {
+          display: flex;
+          height: 1px;
+          background-color: $primary-color;
+          transition: all .4s ease-in-out;
+
+          &:nth-child(1) {
+            width: 80%;
+            transform-origin: 100% 100%;
+          }
+          &:nth-child(2) {
+            width: 100%;
+          }
+          &:nth-child(3) {
+            width: 65%;
+            transform-origin: 100% 100%;
+          }
+        }
+
+        &:hover {
+            cursor: pointer;
+
+            .nav__burger-line {  
+                &:nth-child(1) {
+                    width: 100%;
+                }
+                &:nth-child(2) {
+                    width: 65%;
+                }
+                &:nth-child(3) {
+                    width: 80%;
+                }
+            }
+        }
+      }
+
+      & .nav__content {
+        background-color: $white;
+        position: absolute;
+        height: var(--screen-height);
+        width: 100vw;
+        overflow-x: hidden;
+        transition: all .7s ease-in-out;
+
+        top: calc( 0px - var(--screen-height) );
+        right:0;
+
+        @include screen-min($tablet){
+            bottom: var(--aside); // right by rotation
+            right: var(--screen-height); // bottom by rotation
+            top: auto;
+            transform: rotate(-90deg);
+            transform-origin: bottom right;
+        }
+
+        & > .menu__list {
+            @include flexit( center, center, column);
+
+            & > .list__item {
+                @include flexit( flex-start, center, column);
+
+                @include screen-min($tablet){
+                    @include flexit( flex-start, flex-start, column);
+                }
+
+                &:first-of-type {
+                    padding-bottom: $gutter;
+                }
+                
+                &:last-of-type {
+                    padding-top: $gutter;
+                }
+
+                & a {
+                    text-decoration: none;
+                    color: inherit;
+                }
+
+                & .list__title {
+                    font-size: clamp(4rem, 10vw, 9rem);
+                    font-weight: $font-bold;
+                    background-clip: text;
+                    background-position: center center;
+                    background-size: cover;
+                    line-height: 1;
+                    -webkit-text-stroke: 1px $black;
+                    -webkit-text-fill-color: transparent;
+
+                    a {
+                        -webkit-text-stroke-color: inherit;
+                    }
+                }
+
+
+
+                &:first-of-type {
+
+                    @include screen-min($tablet){
+                        margin-right: calc( 2 * var(--column) );
+                        margin-left: 0;
+                    }
+
+                    // .list__title {
+                    //     background-image: url('./../../../assets/temp/concept-offline-service.jpg');
+                    // }
+                }
+
+                @include screen-min($tablet){
+                    margin-right: calc(0px - (2 * var(--column)));
+                }
+
+                &:last-of-type {
+
+                    @include screen-min($tablet){
+                        margin-left: calc(0px - (2 * var(--column)));
+                        margin-right: 0;
+                    }
+                    
+                    // .list__title {
+                    //     background-image: url('./../../../assets/temp/concept-online-service.jpg');
+                    // }
+                }
+
+                & .list {
+                    @include flexit(flex-start, flex-start, column);
+                    font-size: $fontscale-1;
+                    overflow: hidden;
+                    transition: all .4s ease-in-out;
+
+                    &__item {
+                        
+                        height: 0;
+                        transition: height .4s ease-in-out;
+                        margin-left: -100%;
+
+                    }
+
+                }
+
+                &:hover {
+
+                    .list__title{
+                        -webkit-text-stroke: 0;
+                        -webkit-text-fill-color: inherit;
+                    }
+
+                    .list {
+                        &__item {
+                            
+                            @include screen-min($tablet){
+                                margin-left: calc(2 * $gutter);
+                                height: 48px;
+                            }
+
+                            &:nth-child(1) {
+                                transition:
+                                    height .4s ease-in-out,
+                                    margin-left .7s ease-in-out .3s;
+                            }
+
+                            &:nth-child(2) {
+                                transition:
+                                    height .4s ease-in-out,
+                                    margin-left .7s ease-in-out .2s;
+                            }
+
+                            &:nth-child(3) {
+                                transition:
+                                    height .4s ease-in-out,
+                                    margin-left .7s ease-in-out .1s;
+                            }
+                            
+                            &:nth-child(4) {
+                                transition:
+                                    height .4s ease-in-out,
+                                    margin-left .7s ease-in-out .05s;
+                            }
+
+                            &:nth-child(5) {
+                                transition:
+                                    height .4s ease-in-out,
+                                    margin-left .7s ease-in-out;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+            &.open-nav {
+                background-color: white;
+                @include flexit(center, center, column);
+                right: 0;
+                top: 0;
+
+                @include screen-min($tablet){
+                    top: auto;
+                }
+            }
+      }
+    }
+
+    &.open-nav {
+      & .navbar__nav {
+        & .nav__burger {
+          &-line {
+            &:nth-child(1) {
+              transform: rotate(-45deg);
+              width: 84%;
+            }
+            &:nth-child(2) {
+              transform: scaleY(0);
+            }
+            &:nth-child(3) {
+              transform: rotate(45deg);
+              width: 84%;
+            }
+          }
+          &:hover {
+            .nav__burger-line {  
+              width: 84%; // disable hover effect of bar length when nav is closed
+            }
+          }
+        }
+      }
+    }
+
+    $social-connector: calc(3 * $gutter);
+
+    & .navbar__socials {
+        display: none;
+
+        @include screen-min($tablet){
+            @include flexit(flex-start, center);
+            color: $dark-grey;
+            gap: calc(2rem + $social-connector);
+            padding-bottom: .5rem;
+        }
+
+        & .socials__link {
+            @include flexit(flex-start, center);
+            color: inherit;
+            position: relative;
+            text-decoration: none;
+            font-size: $fontscale--1;
+
+            &:not(:last-child)::after {
+                content: '';
+                position: absolute;
+                width: $social-connector;
+                height: 1px;
+                background-color: $dark-grey;
+                right: calc(0px - ($social-connector + 1rem));
+                transform: translateY(1px);
+            }
+        }
+    }
+  }
+}

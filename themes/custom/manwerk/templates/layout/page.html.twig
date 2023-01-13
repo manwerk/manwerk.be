@@ -1,0 +1,82 @@
+
+<div class="page-wrapper">
+  {% include '@manwerk/includes/paper.html.twig' %}
+  {% include '@manwerk/includes/aside-logo.html.twig' %}
+  {% include '@manwerk/includes/aside-navbar.html.twig' %}
+  
+  {% if is_front %}
+  <header class="header">
+    <h1 class="header__title">
+      Full service<br />grafisch<br />ontwerpbureau
+    </h1>
+    <span class="header__subtitle">
+      Laat je bedrijf on- en offline groeien
+    </span>
+  {% else %}
+  <header class="header header-alt">
+    {{ page.pagetitle }}
+  {% endif %}
+    {{ page.header }}
+  </header>
+  <main class="page">
+  {% if page.highlighted|render|striptags|trim is not empty %}
+    {{ page.highlighted }}
+  {% endif %}
+  {% if is_front %}
+    <section class="page__section section__alt">
+      <h2 class="section__title">Offline</h2>
+      <article class="article article__alt">
+        <section class="article__content">
+          <div class="article__body">
+            <h3 class="article__title">Offline</h3>
+            <p>Waar wij spontaan gelukkig van worden? De geur van vers gedrukte visitekaartjes of een vakkundig opgemaakte factuur in onze brievenbus. Drukwerk is een eerste connectie tussen jouw onderneming en een potentiële klant. En laat onze jaren ervaring in het vak nu net de passende schakel zijn voor al jouw offline communicatie.</p>
+          </div>
+          <footer class="article__footer">
+            <a href="./offline-services" class="btn article__btn">Ontdek onze offline diensten<span class="btn-icon"><i class="fa-solid fa-right-long"></i></span></a>
+          </footer>
+        </section>
+        <section class="article__media">
+          <figure>
+            <img src="/sites/default/files/2022-09/manwerk-brochure-haarden_verwijk.jpg" alt="Concept sfeerbeeld voor onze offline diensten">
+          </figure>
+        </section>
+      </article>
+    </section>
+    <section class="page__section section__alt">
+      <h2 class="section__title">Online</h2>
+      <article class="article article__alt">
+        <section class="article__content">
+          <div class="article__body">
+            <h3 class="article__title">Online</h3>
+            <p>Net zo perfect en smaakvol als een goeie tas koffie. Zo belangrijk is de online communicatie van jouw onderneming. Heb je absoluut geen idee hoe je daar aan moet beginnen? Geen nood, wij helpen jou met het veroveren van een sterke plaats in het online universum.</p>
+          </div>
+          <footer class="article__footer">
+            <a href="./online-services" class="btn article__btn">Ontdek onze online diensten<span class="btn-icon"><i class="fa-solid fa-right-long"></i></span></a>
+          </footer>
+        </section>
+        <section class="article__media">
+          <figure>
+            <img src="/themes/custom/manwerk/assets/temp/concept-online-service.jpg" alt="Concept sfeerbeeld voor onze online diensten">
+          </figure>
+        </section>
+      </article>
+    </section>
+    {{ page.content }}
+  {% else %}
+    {{ page.content }}
+  {% endif %}
+
+  {% if is_front %}
+    <section class="page__footer">
+  {% else %}
+    <section class="page__footer page__footer-alt">
+  {% endif %}
+      <span class="page__footer-title">
+        Al goesting<br />om samen te werken?
+      </span>
+      <a class="btn solid__btn" href="contact">Contacteer ons<span class="btn-icon"><i class="fa-solid fa-right-long"></i></span></a>
+    </section>
+  </main>
+  
+  {% include '@manwerk/includes/footer.html.twig' %}
+</div>

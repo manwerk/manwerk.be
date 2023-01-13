@@ -1,0 +1,30 @@
+name: Manwerk
+type: theme
+description: 'Custom theme made by Manwerk'
+core_version_requirement: ^8.9 || ^9
+base theme: claro
+package: custom
+version: '2022.9'
+logo: assets/manwerk-logo.svg
+screenshot: assets/screenshot.png
+
+libraries:
+  - manwerk/global-styling
+  - manwerk/global-scripts
+
+regions:
+  pagetitle: 'Pagetitle'
+  header: 'Header'
+  sidebar_left: 'Sidebar left'
+  sidebar_right: 'Sidebar right'
+  navigation: 'Navigation'
+  highlighted: 'Highlighted'
+  content: 'Content'
+  footer: 'Footer'
+  footer_1: 'Footer 1'
+  footer_2: 'Footer 2'
+  footer_3: 'Footer 3'
+  subfooter: 'Subfooter'
+    # - mainfooter : 'Footer'
+    # - subfooter: 'Subfooter'
+  # elimination: Eliminated

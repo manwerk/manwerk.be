@@ -1,0 +1,131 @@
+.article {
+
+    & .article__media {
+        figure {
+            @include flexit(center, center);
+
+            img {
+                object-fit: cover;
+                width: 100%;
+                height: 100%;
+            }
+        }
+    }
+
+
+  &__alt {
+    @include flexit(space-between, center, column-reverse);
+    row-gap: calc( 2 * $gutter);
+
+    @include screen-min($desktop){
+        @include flexit(space-between, center);
+    }
+
+    & .article__content {
+        flex-shrink: 0;
+        width: calc(12 * var(--column));
+        max-width: 100%;
+        margin-top: calc( 2 * $gutter );
+
+        @include screen-min($desktop){
+            width: calc(4 * var(--column));
+            margin-top: 0;
+        }
+
+        & .article__footer {
+            margin-top: calc(2 * $gutter);
+        }
+    }
+
+  }
+
+  &__card {
+    @include flexit(center, center, column);
+    position: relative;
+
+    & .article__content {
+        @include flexit(flex-end, flex-end);
+        padding: calc(2 * $gutter);
+        padding-right: 0;
+        position: absolute;
+        bottom: -4rem;
+        left: 0;
+        width: 100%;
+
+        @include screen-min($desktop){
+            bottom: 0;
+            padding: calc(4 * $gutter);
+            padding-right: 0;
+        }
+
+        & .article__body {
+            flex-grow: 1;
+            display: none;
+
+            @include screen-min($desktop){
+                display: flex;
+            }
+            // p {
+            //   height: calc(1em * $line-height);
+            //   width: 80%;
+            //   overflow: hidden;
+            //   text-overflow: ellipsis;
+            // }
+        }
+
+        & .article__footer {
+            @include flexit( flex-end, center);
+            width: calc(12 * var(--column));
+            flex-shrink: 0;
+            
+            @include screen-min($tablet){
+                width: calc( 6 * var(--column));
+            }
+
+            @include screen-min($desktop){
+                width: calc( 4 * var(--column));
+            }
+        }
+    }
+    & .article__media {
+        width: 100%;
+        z-index: -1;
+    }
+  }
+}
+
+
+.page__section {
+    &:nth-child(odd){
+        .article {
+            &.article__alt {
+                .article__media {
+                    margin-right: calc(0px - var(--aside));
+
+                    @include screen-min($desktop){
+                        padding-left: calc(2 * var(--column));
+                    }
+                }
+            }
+        }
+    }
+
+    &:nth-child(even){
+        .article {
+            &.article__alt {
+
+                @include screen-min($desktop){
+                    @include flexit(space-between, center, row-reverse);
+                }
+
+                .article__media {
+                    margin-left: calc(0px - var(--aside));
+                    
+                    @include screen-min($desktop){
+                        padding-right: calc(2 * var(--column));
+                    }
+                }
+            }
+        }
+    }
+}

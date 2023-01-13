@@ -1,0 +1,19 @@
+<aside class="navbar">
+  <div class="navbar__nav">
+    <span class="nav__burger">
+      <span class="nav__burger-line"></span>
+      <span class="nav__burger-line"></span>
+      <span class="nav__burger-line"></span>
+    </span>
+    {% if page.navigation %}
+      {{ page.navigation }}
+    {% endif %}
+  </div>
+  <nav class="navbar__socials">
+  {% for site_setting in site_settings.socials.socials %}
+    <a href={{ site_setting.field_social_link.uri }} target="_blank" rel="noopener noreferrer" class="socials__link">
+      {{ site_setting.field_social_link.title }}
+     </a>
+  {% endfor %}
+  </nav>
+</aside>

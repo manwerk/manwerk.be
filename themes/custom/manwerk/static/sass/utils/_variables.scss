@@ -1,0 +1,27 @@
+$black:         #20201E;
+$dark-grey:     #A6A6A6;
+$grey:          #E6E6E6;
+$light-grey:    #F2F2F2;
+$white:         #FFFFFF;
+
+$primary-color:   $black;
+$secondary-color: $dark-grey;
+$light-color:     $light-grey;
+
+$font:            'Montserrat', sans-serif;
+$font-weight:     300;
+$font-bold:       900;
+
+$line-height:     1.8;
+
+// fontscaling by 'Perfect Fourth'
+$fontscale-3:     calc(1rem * 2.369);
+$fontscale-2:     calc(1rem * 1.777);
+$fontscale-1:     calc(1rem * 1.333);
+$fontscale:       calc(1rem * 1);
+$fontscale--1:    calc(1rem * .75);
+$fontscale--2:    calc(1rem * .563);
+
+// extra variables
+$mobile-small-radius:   5rem; // size of the small radiuses, used for negative margin also
+$small-radius:          15rem; // size of the small radiuses, used for negative margin also

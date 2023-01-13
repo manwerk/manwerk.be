@@ -1,0 +1,20 @@
+
+<div class="page-wrapper">
+  {% include '@manwerk/includes/paper.html.twig' %}
+  {% include '@manwerk/includes/aside-logo.html.twig' %}
+  {% include '@manwerk/includes/aside-navbar.html.twig' %}
+  
+  <header class="header header-alt">
+    {{ page.pagetitle }}
+    {{ page.header }}
+  </header>
+  <main class="page">
+  {% if page.highlighted|render|striptags|trim is not empty %}
+    {{ page.highlighted }}
+  {% endif %}
+  
+    {{ page.content }}
+  </main>
+  
+  {% include '@manwerk/includes/footer.html.twig' %}
+</div>
